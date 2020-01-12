@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/api/music', apiRouter);
+app.use('/api/musics', apiRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -35,7 +35,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json({error:{message: err.message, code:err.code}});
 });
 
 module.exports = app;
