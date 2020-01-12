@@ -1,5 +1,6 @@
 Nodejs, Express, Mongodb music-api
-# music-api
+
+# Songs
 | Route                 | HTTP Verb           | Post Body                             | Description| 
 | --- | --- | --- | --- |
 | /api/musics/             | `GET`                   | E                                 | LIST ALL SONG| 
@@ -9,3 +10,14 @@ Nodejs, Express, Mongodb music-api
 | /api/musics/:music_id    | `DELETE`                | E                                 | DELETE SONG| 
 | /api/musics/top10        | `GET`                   | E                                 | GET TOP 10 | 
 | /api/musics/between/:start_year/:end_year | `GET`  | E                                 | musics between years| 
+
+# Artists
+
+| Route                 | HTTP Verb           | Post Body                             | Description| 
+| --- | --- | --- | --- |
+| /api/artists/             | `GET`                   | E                                | LIST ALL ARTISTS| 
+| /api/artists/             | `POST`        | title,category,country,year,group,score    | ADD ARTIST| 
+| /api/artists/:artist_id    | `GET`                   | E                               | GET A INFO ARTIST| 
+| /api/musics/:artist_id  | `PUT`                                                       | UPDATE ARTIST| 
+| /api/musics/:artist_id    | `DELETE`                | E                                 | DELETE ARTIST| 
+| /api/musics/top10songs        | `GET`                   | E                                 | GET TOP 10 SONGS | 
