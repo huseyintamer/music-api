@@ -14,7 +14,22 @@ router.get('/top10',(req,res)=>{                                    //TOP10
   });  
 
 router.get('/',(req,res)=>{                                         //All Songs
-const promise = Music.find({});
+const promise = Music.aggregate([
+  {
+    $lookup: {
+      from: 'artists',
+      localField: 'group_id',
+      foreignField: '_id',
+      as: 'artist'
+  }
+},
+{
+  $unwind:{
+      path: '$artist',
+      preserveNullAndEmptyArrays: true
+  }
+  }
+])
 
 promise.then((data)=>{
   res.json(data);

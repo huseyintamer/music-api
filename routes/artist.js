@@ -92,6 +92,7 @@ router.get(('/:group_id'),(req, res, next)=>{            //Find by ID
                 _id: '$_id._id',
                 name: '$_id.name',
                 surname: '$_id.surname',
+                bio:'$_id.bio',
                 musics: '$musics'
             }
         }
@@ -114,4 +115,24 @@ router.post('/',(req,res,next)=>{                   //Artist ADD
     })
 })
 
+router.put('/:group_id',(req, res)=> {                              //Update Artist
+    const promise = Artist.findByIdAndUpdate(
+        req.params.group_id,
+        req.body, {new: true});
+    promise.then((artist)=>{
+      res.json(artist);  
+    }).catch(()=> {
+      res.json({message:'The Song is Not Found',code:0});
+    });
+  });
+
+  router.delete('/:group_id',(req, res)=> {                           //Delete Artist
+    const promise = Artist.findByIdAndRemove(req.params.group_id);
+    promise.then((group)=>{
+      res.json({group,message:'The Song has been is Deleted',code:1});  
+    }).catch(()=> {
+      res.json({message:'The Song is Deleted',code:1});
+    });
+  });
+  
 module.exports = router;
