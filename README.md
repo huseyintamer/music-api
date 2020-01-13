@@ -16,8 +16,8 @@ Nodejs, Express, Mongodb music-api
 | Route                 | HTTP Verb           | Post Body                             | Description| 
 | --- | --- | --- | --- |
 | /api/artists/             | `GET`                   | E                                | LIST ALL ARTISTS| 
-| /api/artists/             | `POST`        | title,category,country,year,group,score    | ADD ARTIST| 
+| /api/artists/             | `POST`        | name,surname,bio                           | ADD ARTIST| 
 | /api/artists/:artist_id    | `GET`                   | E                               | GET A INFO ARTIST| 
-| /api/musics/:artist_id  | `PUT`                                                       | UPDATE ARTIST| 
-| /api/musics/:artist_id    | `DELETE`                | E                                 | DELETE ARTIST| 
-| /api/musics/top10songs        | `GET`                   | E                                 | GET TOP 10 SONGS | 
+| /api/artists/:artist_id  | `PUT`                                                       | UPDATE ARTIST| 
+| /api/artists/:artist_id    | `DELETE`                | E                               | DELETE ARTIST| 
+| /api/artists/top10songs        | `GET`                   | E                           | GET TOP 10 SONGS | 
