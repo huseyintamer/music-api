@@ -9,7 +9,8 @@ const apiRouter = require('./routes/music');
 const artistRouter = require('./routes/artist');
 const db = require('./helper/db')();
 const app = express();
-
+//Middleware
+const verifyToken = require('./middleware/verify-token');
 const config = require('./config');
 app.set('api_secret_key',config.api_secret_key);
 // view engine setup
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/api', verifyToken);
 app.use('/api/musics', apiRouter);
 app.use('/api/artists', artistRouter);
 
